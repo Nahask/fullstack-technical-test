@@ -80,6 +80,13 @@
   margin-top: 3rem;
 }
 
+.cartGrid {
+  display: flex;
+  flex-direction: column;
+  max-width: 800px;
+  align-items: center;
+}
+
 .card {
   margin: 1rem;
   flex-basis: 45%;

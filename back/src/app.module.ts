@@ -1,10 +1,13 @@
 import { Module } from '@nestjs/common';
-import { CartController } from './cart.controller';
-import { CartService } from './cart.service';
+import { APP_INTERCEPTOR } from '@nestjs/core';
+import { TimeoutInterceptor } from './interceptors/timeout.interceptor';
+import { CartModule } from './modules/cart.module';
 
 @Module({
-  imports: [],
-  controllers: [CartController],
-  providers: [CartService],
+  imports: [CartModule],
+  providers: [{
+    provide: APP_INTERCEPTOR,
+    useClass: TimeoutInterceptor
+  }]
 })
-export class AppModule {}
+export class AppModule { }
